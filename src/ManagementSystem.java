@@ -4,13 +4,11 @@ public class ManagementSystem {
     private List<User> users;
     private List<Project> projects;
     private List<SignedProject> signedProjects;
-    private Scanner scanner;
     public ManagementSystem() {
         //read from database or read from file
         initializeData();
     }
     private void initializeData() {
-        this.scanner = new Scanner(System.in);
         users = new LinkedList<>();
         projects = new LinkedList<>();
         signedProjects = new LinkedList<>();
