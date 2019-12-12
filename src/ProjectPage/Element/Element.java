@@ -4,11 +4,16 @@ import ProjectPage.AdvancedPage;
 import ProjectPage.Page;
 
 public abstract class Element extends AdvancedPage {
-
-    public Element(Page partOfPage) {
+    private String element;
+    public Element(Page partOfPage, String element) {
         super(partOfPage);
+        this.element = element;
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + " Adding element ";
+        return getPartOfPage().showInfo() + "\nAdding element ";
+    }
+
+    public String getElement() {
+        return element;
     }
 }

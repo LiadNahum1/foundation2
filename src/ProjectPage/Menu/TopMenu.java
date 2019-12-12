@@ -6,6 +6,6 @@ public class TopMenu extends Menu {
         super(partOfPage);
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + " Adding upper menu";
+        return super.showInfo() + " Upper menu is displayed";
     }
 }

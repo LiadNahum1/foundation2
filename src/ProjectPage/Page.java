@@ -1,5 +1,5 @@
 package ProjectPage;
 
-public interface Page {
+public interface Page  {
     String showInfo();
 }

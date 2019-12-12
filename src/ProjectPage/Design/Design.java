@@ -8,6 +8,6 @@ public abstract class Design extends AdvancedPage {
         super(partOfPage);
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + " Adding design ";
+        return getPartOfPage().showInfo() + "\nAdding design ";
     }
 }

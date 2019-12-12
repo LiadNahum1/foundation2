@@ -7,6 +7,6 @@ public class Design2 extends Design {
         super(partOfPage);
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + " Adding design2 ";
+        return super.showInfo() + " Using design2 ";
     }
 }

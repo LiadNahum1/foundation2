@@ -7,6 +7,6 @@ public class LeftMenu extends Menu {
         super(partOfPage);
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + " Adding left menu";
+        return  super.showInfo() + " Left menu is displayed";
     }
 }
