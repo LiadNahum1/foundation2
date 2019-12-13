@@ -1,5 +1,6 @@
+package MainProject;
+
 import java.util.Calendar;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -84,8 +85,8 @@ public class Project implements Subject{
     }
 
     public String toString(){
-        String str =  "Name: " + this.name + "\nDescription: " + this.description + "\nOffer: " + offer.toString() +
-                "\nOrganization: " + this.organization +"\nCode: " + this.code + "\nState: " + this.state + "\nCreation Date: " + this.creationDate.getTime().toString();
+        String str =  "Name: " + this.name + "\nDescription: " + this.description + "\nMainProject.Offer: " + offer.toString() +
+                "\nOrganization: " + this.organization +"\nCode: " + this.code + "\nMainProject.State: " + this.state + "\nCreation Date: " + this.creationDate.getTime().toString();
         if(this.url == "")
             str += "\nURL: None";
         else
@@ -94,7 +95,7 @@ public class Project implements Subject{
     }
 
     public String getDetails(){
-        return "Name: " + this.name + "\nDescription: " + this.description + "\nOffer: " + offer.toString()
+        return "Name: " + this.name + "\nDescription: " + this.description + "\nMainProject.Offer: " + offer.toString()
                 + "\nURL: " + this.url;
     }
 

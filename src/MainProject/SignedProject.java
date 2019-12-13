@@ -1,3 +1,5 @@
+package MainProject;
+
 import java.util.List;
 
 public class SignedProject {

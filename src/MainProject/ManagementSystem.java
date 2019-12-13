@@ -1,3 +1,5 @@
+package MainProject;
+
 import java.util.*;
 
 public class ManagementSystem {
@@ -8,7 +10,7 @@ public class ManagementSystem {
         //read from database or read from file
         initializeData();
     }
-    private void initializeData() {
+    public void initializeData() {
         users = new LinkedList<>();
         projects = new LinkedList<>();
         signedProjects = new LinkedList<>();
@@ -21,15 +23,15 @@ public class ManagementSystem {
 
     /*      Logic        */
     //register and add offer to the system
-    private void registerAsOffer(String username, String password, String name, String familyName, String email, String phone) {
+    public void registerAsOffer(String username, String password, String name, String familyName, String email, String phone) {
         this.users.add(new Offer(username, password, name, familyName, email, phone));
     }
     //register and add student to the system
-    private void registerAsStudent(String username, String password, String id) {
+    public void registerAsStudent(String username, String password, String id) {
         this.users.add(new Student(username, password, id));
     }
     //returns code project if succeed or -1 if failed login or failed in adding project
-    private int addProject(String username, String password, String name, String description, int estimatedNumberOfHours, String organization) {
+    public int addProject(String username, String password, String name, String description, int estimatedNumberOfHours, String organization) {
         User user = login(username, password);
         int code = -1;
         if(user != null & user instanceof Offer ) {
@@ -43,11 +45,11 @@ public class ManagementSystem {
         }
         return code;
     }
-    private void addToProjectList(Project newProject) {
+    public void addToProjectList(Project newProject) {
         this.projects.add(newProject);
     }
     //same offer of organization can't offer projects with same names in the same year
-    private boolean checkValidityOfName(String name, String organization, Offer user, Calendar today) {
+    public boolean checkValidityOfName(String name, String organization, Offer user, Calendar today) {
         for(Project project: this.projects)
         {
             int yearOfSpecificProject = project.getCreationDate().get(Calendar.YEAR);
@@ -60,14 +62,14 @@ public class ManagementSystem {
         }
         return true;
     }
-    private boolean checkValidityOfHours(int estimatedNumberOfHours) {
+    public boolean checkValidityOfHours(int estimatedNumberOfHours) {
         return estimatedNumberOfHours >= 200 & estimatedNumberOfHours <= 300;
     }
 
-    private User login(String username, String password) {
+    public User login(String username, String password) {
         return checkLogin(username, password);
     }
-    private User checkLogin(String username, String password) {
+    public User checkLogin(String username, String password) {
         for(User user : this.users){
             if(user.getUsername().equals(username) &  user.getPassword().equals(password))
                 return user;
@@ -75,7 +77,7 @@ public class ManagementSystem {
         return null;
     }
 
-    private List<Project> getUnsignedProjects() {
+    public List<Project> getUnsignedProjects() {
         List<Project> unsignedProjects = new LinkedList<>();
         for(Project project : this.projects)
         {
@@ -84,14 +86,14 @@ public class ManagementSystem {
         }
         return unsignedProjects;
     }
-    private void presentAllUnsignedProject() {
+    public void presentAllUnsignedProject() {
         List<Project> unsignedProjects = getUnsignedProjects();
         for(int index = 0; index < unsignedProjects.size(); index = index +1){
             System.out.println( (index+1) + ". " + unsignedProjects.get(index).toString());
         }
     }
     //TODO: check if projectCode is code of a project that is approved and not! in progress
-    private String registerProject(String username, String password, int projectCode, List<String> ids, String nameOfMentor) {
+    public String registerProject(String username, String password, int projectCode, List<String> ids, String nameOfMentor) {
         User user = login(username, password);
         String urlCode = "";
         if(user != null & user instanceof Offer ) {
@@ -109,21 +111,21 @@ public class ManagementSystem {
         }
         return urlCode;
     }
-    private Project getProjectByCode(int projectCode) {
+    public Project getProjectByCode(int projectCode) {
         for(Project project : this.projects){
             if(project.getCode() == projectCode)
                 return project;
         }
         return null;
     }
-    private List<Student> checkIfLegalIdsList(List<String> ids) {
+    public List<Student> checkIfLegalIdsList(List<String> ids) {
         List<Student> students = new LinkedList<>();
         students = getStudents(ids);
         if(students.size() == ids.size() && (ids.size() >= 2 & ids.size() <= 4))
             return students;
         else return null;
     }
-    private List<Student> getStudents(List<String> ids) {
+    public List<Student> getStudents(List<String> ids) {
         List<Student> students = new LinkedList<>();
         for(User user: this.users){
             if(user instanceof  Student) {

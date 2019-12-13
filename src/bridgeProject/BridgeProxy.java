@@ -7,7 +7,6 @@ import acptTests.auxiliary.DBSuggestedProjectInfo;
 
 public class BridgeProxy implements BridgeProject {
 	private BridgeProject real;
-
 	public BridgeProxy() {
 		this.real=null;
 	}

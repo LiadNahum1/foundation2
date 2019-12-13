@@ -1,3 +1,5 @@
+package MainProject;
+
 public enum State {
     IN_CHECKING,
     APPROVED,
