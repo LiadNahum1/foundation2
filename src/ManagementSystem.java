@@ -90,9 +90,10 @@ public class ManagementSystem {
             System.out.println( (index+1) + ". " + unsignedProjects.get(index).toString());
         }
     }
-    private int registerProject(String username, String password, int projectCode, List<String> ids, String nameOfMentor) {
+    //TODO: check if projectCode is code of a project that is approved and not! in progress 
+    private String registerProject(String username, String password, int projectCode, List<String> ids, String nameOfMentor) {
         User user = login(username, password);
-        int urlCode = -1;
+        String urlCode = "";
         if(user != null & user instanceof Offer ) {
             List<Student> students = new LinkedList<>();
             students = checkIfLegalIdsList(ids);
@@ -101,7 +102,7 @@ public class ManagementSystem {
                 if(project != null) {
                     SignedProject signed = new SignedProject(students, project, nameOfMentor);
                     this.signedProjects.add(signed);
-                    urlCode = signed.getCodeAccess();
+                    urlCode = project.getUrl(); //url is defined when project was approved
                     project.setState(State.IN_PROGRESS); //project in progress because signing succeed
                 }
             }
@@ -134,6 +135,9 @@ public class ManagementSystem {
         return students;
     }
 
+    public void approveProject(Project project){
+        project.approveProject();
+    }
 
 }
 

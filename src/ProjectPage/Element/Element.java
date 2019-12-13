@@ -10,7 +10,7 @@ public abstract class Element extends AdvancedPage {
         this.element = element;
     }
     public String showInfo() {
-        return getPartOfPage().showInfo() + "\nAdding element ";
+        return super.showInfo() + "\nAdding element ";
     }
 
     public String getElement() {

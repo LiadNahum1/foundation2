@@ -10,6 +10,7 @@ public class Main {
         Page page2 = new Design1(new Link ( new Logo(new BasicPage(), "logo1"), "link1"));
 
         System.out.println(page1.showInfo());
+        System.out.println( );
         System.out.println(page2.showInfo());
     }
 }

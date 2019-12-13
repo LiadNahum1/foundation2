@@ -11,7 +11,7 @@ public class AccessProxy implements Page {
     public String showInfo(){
         String info ;
         if(isBlocked) {
-            info = "Access for " + page.getClass().getSimpleName() + " is blocked !";
+            info = "Access for " + page.getClass().getSimpleName() + " is blocked !\n";
             if(page instanceof AdvancedPage )
                 info += ((AdvancedPage) page).getPartOfPage().showInfo();
         }

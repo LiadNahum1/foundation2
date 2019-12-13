@@ -9,6 +9,6 @@ public abstract class Menu extends AdvancedPage {
     }
 
     public String showInfo() {
-        return getPartOfPage().showInfo() + "\nAdding menu ";
+        return super.showInfo() + "\nAdding menu ";
     }
 }
