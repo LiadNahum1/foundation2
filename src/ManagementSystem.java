@@ -90,7 +90,7 @@ public class ManagementSystem {
             System.out.println( (index+1) + ". " + unsignedProjects.get(index).toString());
         }
     }
-    //TODO: check if projectCode is code of a project that is approved and not! in progress 
+    //TODO: check if projectCode is code of a project that is approved and not! in progress
     private String registerProject(String username, String password, int projectCode, List<String> ids, String nameOfMentor) {
         User user = login(username, password);
         String urlCode = "";
