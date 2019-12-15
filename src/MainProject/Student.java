@@ -32,7 +32,7 @@ public class Student extends User implements Observer{
     }
     @Override
     public void update(Subject subject) {
-        String msgDet = "MainProject.Project has approved and now you can sign to it. The project's details are:\n" +
+        String msgDet = "A project has approved and now you can sign to it. The project's details are:\n" +
                 ((Project) subject).getDetails();
         String by = informStudentBy.get(subject);
         if(by.equals("email"))

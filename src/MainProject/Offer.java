@@ -77,4 +77,13 @@ public class Offer extends User{
     public String toString(){
         return "Name: " + this.name + "Family Name: " + this.familyName + " Email: " + this.email + " Phone number: " + this.phone;
     }
+
+    public boolean checkUnmissingData() {
+        return checkNotNullOrEmpty(name) &  checkNotNullOrEmpty(familyName) & checkNotNullOrEmpty(email) & checkNotNullOrEmpty(phone);
+    }
+
+    private boolean checkNotNullOrEmpty(String field) {
+        return field != null & field != "";
+    }
+
 }

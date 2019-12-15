@@ -3,21 +3,21 @@ package MainProject;
 import java.util.List;
 
 public class SignedProject {
-    private List<Student> participants;
+    private List<String> participants;
     private Project project;
     private String mentor;
 
-    public SignedProject(List<Student> participants, Project project, String mentor) {
+    public SignedProject(List<String> participants, Project project, String mentor) {
         this.participants = participants;
         this.project = project;
         this.mentor = mentor;
     }
 
-    public List<Student> getParticipants() {
+    public List<String> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<Student> participants) {
+    public void setParticipants(List<String> participants) {
         this.participants = participants;
     }
 
