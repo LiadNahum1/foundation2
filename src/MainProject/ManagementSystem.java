@@ -6,11 +6,12 @@ public class ManagementSystem {
     private List<User> users;
     private List<Project> projects;
     private List<SignedProject> signedProjects;
+    private MessageSystem messageSystem;
     public ManagementSystem() {
         users = new LinkedList<>();
         projects = new LinkedList<>();
         signedProjects = new LinkedList<>();
-
+        messageSystem = new MessageSystem();
     }
 
     /*      Logic        */
@@ -137,8 +138,10 @@ public class ManagementSystem {
     public void approveProject(int id){
         for(Project project : this.projects) {
             //assume project is in checking before approving
-            if (project.getState() == State.IN_CHECKING & project.getCode() == id)
+            if (project.getState() == State.IN_CHECKING & project.getCode() == id) {
+                project.attach(messageSystem);
                 project.approveProject();
+            }
         }
     }
 

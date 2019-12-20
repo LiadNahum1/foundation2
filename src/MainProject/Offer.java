@@ -75,7 +75,7 @@ public class Offer extends User{
     }
 
     public String toString(){
-        return "Name: " + this.name + "Family Name: " + this.familyName + " Email: " + this.email + " Phone number: " + this.phone;
+        return "Name: " + this.name + " Family Name: " + this.familyName + " Email: " + this.email + " Phone number: " + this.phone;
     }
 
     public boolean checkUnmissingData() {

@@ -94,8 +94,11 @@ public class Project implements Subject{
         return str;
     }
 
-    public String getDetails(){
-        return "Name: " + this.name + "\nDescription: " + this.description + "\nMainProject.Offer: " + offer.toString()
+    public String getDetailsForStudent(){
+        return "Name: " + this.name + "\nURL: " + this.url;
+    }
+    public String getDetailsForAll(){
+        return "Name: " + this.name + "\nDescription: " + this.description + "\nOffer: " + offer.toString()
                 + "\nURL: " + this.url;
     }
 
@@ -103,6 +106,7 @@ public class Project implements Subject{
         setState(State.APPROVED);
         setUrl("www.website." + getName() + "_" + getCode());
         notifyObservers();
+
 
     }
     @Override
